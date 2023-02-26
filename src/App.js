@@ -3,13 +3,8 @@ import styled from 'styled-components';
 import { GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
 import React, {useState, useEffect} from 'react';
 import Calendar from './Calendar';
-import axios from 'axios';
+import Progressbar from './Bar.js';
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
 const Button = styled.button`
   display:inline-block;
   flex: 1;
@@ -73,6 +68,7 @@ function App() {
   //   googleLogout();
   //   setProfile(null);
   // };
+  const [percent, setPercent] = useState(0);
 
   const handleClick = () => {
     const id = todoList.length + 1;
@@ -93,13 +89,16 @@ function App() {
         if (!task.complete){
             //Task is pending, modifying it to complete and increment the count
             setCompletedTaskCount(completedTaskCount + 1);
-            if((completedTaskCount%5)==0){
+            setPercent(percent + 20);
+            if(((completedTaskCount+1)%5)==0){
               setLevel(level + 1);
+              setPercent(percent - 80);
             }
         } 
         else {
             //Task is complete, modifying it back to pending, decrement Complete count
             setCompletedTaskCount(completedTaskCount - 1);
+            setPercent(percent - 20);
             // setLevel(level - 1);
         }
       item = { ...task, complete: !task.complete };
@@ -112,7 +111,10 @@ function App() {
 
   return (
       <body>
-        <h1><a href='index.html'>AthenaTasks</a></h1>
+        <h1>
+        <img src={require('./Logo.png')} width={100} height={100}/>
+          <scan class = "heading"> AthenaTasks </scan>
+        </h1>
         <div id="login">
         </div>
         <div className="row">
@@ -154,16 +156,17 @@ function App() {
             </div>
 
             <div id="character">
+              <h2 class="category-heading">Character</h2>
               <div className = "exp bar">
                 <header>Your EXP</header>
                 <section className="progress">
                   <h2>Level <span level ></span> {level} </h2>
-                    {/* <input type={input} /> */}
-                    <div className="exp-bar">
-                      <span><span></span></span>
+                    <div>
+                      <Progressbar bgcolor="#947eB0" progress={percent}  height={10} />
                     </div>
                 </section>
               </div>
+              <img id="chr_photo" src={require('./character.png')} width={257} height={367}/>
             </div>
         </div>
       </body>     
