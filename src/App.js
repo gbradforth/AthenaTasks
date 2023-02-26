@@ -82,8 +82,7 @@ function App() {
 
   return (
       <body>
-        <h1>AthenaTasks</h1>
-
+        <h1><a href='index.html'>AthenaTasks</a></h1>
         <div class="row">
             <div id = "tasks">
                 <h2>Task List</h2> 
@@ -126,7 +125,7 @@ function App() {
                 <header>Your EXP</header>
                 <section class="progress">
                   <h2>Level <span level ></span> {level} </h2>
-                    <input type="checkbox" />
+                    {/* <input type={input} /> */}
                     <div class="exp-bar">
                       <span><span></span></span>
                     </div>
