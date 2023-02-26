@@ -365,11 +365,13 @@ p,input,label {
   margin-bottom: 5px;
   background-color: #e6e6fa;
   width: 90%;
-  height: 80%;
+  height: 100vh;
   margin-right: auto;
   margin-left: auto; 
+  color:#854c70
   /* padding: 5px; */
 }
+
 
 .checkbox{
   background-color: #e6e6fa;

@@ -3,12 +3,8 @@ import styled from 'styled-components';
 import { GoogleLogin } from '@react-oauth/google';
 import React, {useState} from 'react';
 import Calendar from './Calendar';
+import Progressbar from './Bar.js';
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
 const Button = styled.button`
   display:inline-block;
   flex: 1;
@@ -42,6 +38,7 @@ function App() {
   const [todoList, setTodoList] = useState([]);
   const [completedTaskCount, setCompletedTaskCount] = useState(0);
   const [level, setLevel] = useState(1);
+  const [percent, setPercent] = useState(0);
 
   const handleClick = () => {
     const id = todoList.length + 1;
@@ -62,13 +59,16 @@ function App() {
         if (!task.complete){
             //Task is pending, modifying it to complete and increment the count
             setCompletedTaskCount(completedTaskCount + 1);
-            if((completedTaskCount%5)==0){
+            setPercent(percent + 20);
+            if(((completedTaskCount+1)%5)==0){
               setLevel(level + 1);
+              setPercent(percent - 80);
             }
         } 
         else {
             //Task is complete, modifying it back to pending, decrement Complete count
             setCompletedTaskCount(completedTaskCount - 1);
+            setPercent(percent - 20);
             // setLevel(level - 1);
         }
       item = { ...task, complete: !task.complete };
@@ -137,9 +137,9 @@ function App() {
                 <header>Your EXP</header>
                 <section class="progress">
                   <h2>Level <span level ></span> {level} </h2>
-                    {/* <input type={input} /> */}
-                    <div class="exp-bar">
-                      <span><span></span></span>
+                    <div>
+                      <hr />
+                      <Progressbar bgcolor="#947EB0" progress={percent}  height={10} />
                     </div>
                 </section>
               </div>
