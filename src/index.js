@@ -8,18 +8,10 @@ import config from './config.json';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <GoogleOAuthProvider clientId="438644935030-35rucc42om7je7h09lve4g2gaf798e44.apps.googleusercontent.com">
       <App />
     </GoogleOAuthProvider>
-  </React.StrictMode>
 );
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.xrender(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
