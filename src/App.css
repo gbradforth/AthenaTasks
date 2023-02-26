@@ -32,6 +32,7 @@ body {
   line-height: 15px;
 }
 
+header,
 section {
   background-image: linear-gradient(to right, rgba(127,127,127,0.33) 80%, rgba(127,127,127,0.33) 20%, transparent 20%);
   background-position: 0 bottom;
@@ -67,23 +68,23 @@ header {
   background-color: rgb(45,47,77);
 }
 
-section.experience {
+section.progress {
   padding: 20px;
 }
 
-section.experience h2 {
+section.progress h2 {
   font-weight: 100;
   font-size: 16px;
   line-height: 20px;
   color: #947eB0;
 }
 
-section.experience input {
+section.progress input {
   position: absolute;
   top: 200px;
 }
 
-section.experience div.exp-bar {
+section.progress div.exp-bar {
   display: block;
   width: 100%;
   height: 4px;
@@ -92,7 +93,7 @@ section.experience div.exp-bar {
   border-radius: 2px;
 }
 
-section.experience div.exp-bar > span {
+section.progress div.exp-bar > span {
   position: relative;
   
   display: block;
@@ -105,13 +106,13 @@ section.experience div.exp-bar > span {
   transition: all 1s ease-in-out;
 }
 
-section.experience input:checked + div.exp-bar > span {
+section.progress input:checked + div.exp-bar > span {
   width: 180px;
   
   transition-duration: 4s;
 }
 
-section.experience div.exp-bar > span:before {
+section.progress div.exp-bar > span:before {
   content: '';
   
   position: absolute;
@@ -126,7 +127,7 @@ section.experience div.exp-bar > span:before {
   box-shadow: 0 0 5px rgb(125,130,200);
 }
 
-section.experience div.exp-bar > span:after {
+section.progress div.exp-bar > span:after {
   content: '';
   
   position: absolute;
@@ -142,11 +143,11 @@ section.experience div.exp-bar > span:after {
   opacity: 0;
 }
 
-section.experience input:checked + div.exp-bar > span:after {
-  -webkit-animation: glow 1s 4;
+section.progress input:checked + div.exp-bar > span:after {
+  animation: glow 1s 4;
 }
 
-@-webkit-keyframes glow {
+@keyframes glow {
 0% {
   opacity: 0;
 }
@@ -158,7 +159,7 @@ section.experience input:checked + div.exp-bar > span:after {
 }
 }
 
-section.experience div.exp-bar > span > span {
+section.progress div.exp-bar > span > span {
   position: absolute;
   right: 0;
   
@@ -167,8 +168,8 @@ section.experience div.exp-bar > span > span {
   height: 4px;    
 }
 
-section.experience div.exp-bar > span > span:before,
-section.experience div.exp-bar > span > span:after {
+section.progress div.exp-bar > span > span:before,
+section.progress div.exp-bar > span > span:after {
   content: '';
   
   position: absolute;
@@ -181,18 +182,20 @@ section.experience div.exp-bar > span > span:after {
   opacity: 0;
 }
 
-section.experience input:checked + div.exp-bar > span > span:before {
-  -webkit-animation: spark-1 1s linear 4;
-  -webkit-transform-origin: 0 10px;
+section.progress input:checked + div.exp-bar > span > span:before {
+  animation: spark-1 1s linear 4;
+  transform-origin: 0 10px;
 }
 
-section.experience input:checked + div.exp-bar > span > span:after {
-  -webkit-animation: spark-2 1s linear 4;
-  -webkit-animation-delay: 0.33s;
-  -webkit-transform-origin: 0 -20px;
+section.progress input:checked + div.exp-bar > span > span:after {
+  animation: spark-2 1s linear 4;
+  animation-delay: 0.33s;
+  transform-origin: 0 -20px;
 }
 
-@-webkit-keyframes spark-1 {
+/* @keyframes xpbar {keyframes-selector {css-styles;}} */
+
+@keyframes spark-1 {
 0% {
   -webkit-transform: rotate(0);
   opacity: 1;
@@ -227,7 +230,7 @@ section.experience input:checked + div.exp-bar > span > span:after {
 }
 }
 
-@-webkit-keyframes spark-2 {
+@keyframes spark-2 {
 0% {
   -webkit-transform: rotate(0);
   opacity: 1;
