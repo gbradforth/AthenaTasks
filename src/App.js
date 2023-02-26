@@ -138,8 +138,7 @@ function App() {
                 <section class="progress">
                   <h2>Level <span level ></span> {level} </h2>
                     <div>
-                      <hr />
-                      <Progressbar bgcolor="#947EB0" progress={percent}  height={10} />
+                      <Progressbar bgcolor="#947eB0" progress={percent}  height={10} />
                     </div>
                 </section>
               </div>
