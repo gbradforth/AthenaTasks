@@ -19,7 +19,7 @@ function App() {
             </div>
 
             <div id="character">
-                
+              
             </div>
         </div>
       </body>     

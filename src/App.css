@@ -64,6 +64,10 @@ p,input,label {
   /* padding: 5px; */
 }
 
+.checkbox{
+  background-color: #ppp;
+}
+
 .row {
   width: 100%;
   position: relative;
