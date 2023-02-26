@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import config from './config.json';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 function Calendar() {
     const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
@@ -19,9 +20,6 @@ function Calendar() {
             if (window.gapi) handleClientLoad();
         });
     }, []);
-    const handleClientLoad = () => {
-        window.gapi.load("client:auth2", initClient);
-    };
     const openSignInPopup = () => {
         window.gapi.auth2.authorize(
             {client_id: MY_CLIENT_ID, scope: SCOPES},
@@ -35,20 +33,23 @@ function Calendar() {
             }
         );
     }
+    const handleClientLoad = () => {
+        window.gapi.load("auth2", initClient);
+    };
     const initClient = () => {
         if(!localStorage.getItem("access_token")) {
             openSignInPopup();
         } else {
             fetch(
-                "https://www.googleapis.com/calendar/v3/calendars/primary/events?key=${MY_API_KEY}&orderBy=startTime&singleEvents=true",
+                'https://www.googleapis.com/calendar/v3/calendars/primary/events?key=${MY_API_KEY}&orderBy=startTime&singleEvents=true',
                     {
                         headers: {
-                            Authorization: "Bearer ${localStorage.getItem(access_token)}"
+                            Authorization: "Bearer ${localStorage.getItem(access_token)}",
                         },
                     }
             )
             .then((res) => {
-                if (res.status != 401) {
+                if (res.status !== 401) {
                     return res.json();
                 } else{
                     localStorage.removeItem("access_token");
@@ -69,7 +70,7 @@ function Calendar() {
             singleEvents: true,
         })
         .then(function (response) {
-            let events = response.result.items;
+            var events = response.result.items;
             if(events.length > 0){
                 setEvents(formatEvents(events));
             }
@@ -84,11 +85,11 @@ function Calendar() {
     };
     return(
         <FullCalendar
-            plugins={[dayGridPlugin]}
-            initialView="dayGridWeek"
+            plugins={[timeGridPlugin]}
+            initialView="timeGridWeek"
             events={events}
         />
-    )
-}
+    );
+};
 
 export default Calendar;

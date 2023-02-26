@@ -1,7 +1,6 @@
 import './App.css';
 import styled from 'styled-components';
-import { GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
-import React, {useState, useEffect} from 'react';
+import React, {useState } from 'react';
 import Calendar from './Calendar';
 import Progressbar from './Bar.js';
 
