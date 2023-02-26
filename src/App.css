@@ -42,11 +42,6 @@ section {
 
 /**************************/
 
-:root {
-  --fc-border-color: #e6E6FA;
-  --fc-daygrid-event-dot-width: 5px;
-}
-
 div.help-desk {
   position: absolute;
   top: 0;
