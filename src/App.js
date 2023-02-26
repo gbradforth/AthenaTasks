@@ -92,7 +92,7 @@ function App() {
         </div>
         <div class="row">
         <div id = "tasks">
-                <h2>Task List</h2> 
+                <h2 class="category-heading">Task List</h2> 
                 <Tasks>
                   <TaskCount>
                     <b>Pending Tasks</b> {todoList.length - completedTaskCount}
@@ -124,7 +124,7 @@ function App() {
               <Button onClick={() => handleClick()}>Add</Button>
             </div>
             <div id="calendar">
-                <h2>Calendar</h2>
+                <h2 class="category-heading">Calendar</h2>
                 <Calendar/>
             </div>
 

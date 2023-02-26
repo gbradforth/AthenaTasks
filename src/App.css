@@ -42,6 +42,11 @@ section {
 
 /**************************/
 
+:root {
+  --fc-border-color: #e6E6FA;
+  --fc-daygrid-event-dot-width: 5px;
+}
+
 div.help-desk {
   position: absolute;
   top: 0;
@@ -497,6 +502,14 @@ a,a:visited {
 }
 
 h2 {
+  position: relative;
+  top: -25px;
+  color: #854c70;
+  padding: 5px;
+  width: 100%;
+}
+
+.category-heading {
   position: relative;
   top: -25px;
   background-color: #bcbee1;
