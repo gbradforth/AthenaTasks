@@ -321,8 +321,13 @@ section.progress input:checked + div.exp-bar > span > span:after {
 }
 
 h1 {
-  margin-bottom: 15px;
   color: #854c70;
+  padding: 10px;
+}
+
+.heading{
+  position: absolute;
+  top: 9%;
   padding: 10px;
 }
 

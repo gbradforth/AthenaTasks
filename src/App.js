@@ -86,7 +86,10 @@ function App() {
   };
   return (
       <body>
-        <h1><a href='index.html'>AthenaTasks</a></h1>
+        <h1>
+        <img src={require('./Logo.png')} width={100} height={100}/>
+          <scan class = "heading"> AthenaTasks </scan>
+        </h1>
         <div id="login">
           <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
         </div>
