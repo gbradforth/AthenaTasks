@@ -1,8 +1,9 @@
 import './App.css';
 import styled from 'styled-components';
-import { GoogleLogin } from '@react-oauth/google';
-import React, {useState} from 'react';
+import { GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
+import React, {useState, useEffect} from 'react';
 import Calendar from './Calendar';
+import axios from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -38,10 +39,40 @@ const LIST = styled.li`
 `;
 
 function App() {
+  //vars for todo list
   const [input, setInput] = useState("");
   const [todoList, setTodoList] = useState([]);
   const [completedTaskCount, setCompletedTaskCount] = useState(0);
   const [level, setLevel] = useState(1);
+  
+  //vars for login
+  // const [user, setUser] = useState([]);
+  // const [profile, setProfile] = useState(null);
+
+  //login/logout functions
+  // const login = useGoogleLogin({
+  //   onSuccess: (codeResponse) => setUser(codeResponse),
+  //   onError: (error) => console.log('Login Failed:', error)
+  // });
+  // useEffect(() => {
+  //   if(user){
+  //     axios({
+  //       url: "https://www.googleapis.com/oauth2/v/userinfo?access_token=${user.access_token}",
+  //       headers: {
+  //         'Access-Control-Allow-Origin': 'http://localhost:300',
+  //         'Access-Control-Allow-Credentials': true
+  //       }
+  //     })
+  //     .then((res) => {
+  //       setProfile(res.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  //   }
+  // }, [user]);
+  // const logOut = () => {
+  //   googleLogout();
+  //   setProfile(null);
+  // };
 
   const handleClick = () => {
     const id = todoList.length + 1;
@@ -78,21 +109,15 @@ function App() {
     });
     setTodoList(list);
   };
-  const responseMessage = (response) => {
-    console.log(response);
-  };
-  const errorMessage = (error) => {
-    console.log(error);
-  };
+
   return (
       <body>
         <h1><a href='index.html'>AthenaTasks</a></h1>
         <div id="login">
-          <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
         </div>
-        <div class="row">
+        <div className="row">
         <div id = "tasks">
-                <h2 class="category-heading">Task List</h2> 
+                <h2 className="category-heading">Task List</h2> 
                 <Tasks>
                   <TaskCount>
                     <b>Pending Tasks</b> {todoList.length - completedTaskCount}
@@ -124,17 +149,17 @@ function App() {
               <Button onClick={() => handleClick()}>Add</Button>
             </div>
             <div id="calendar">
-                <h2 class="category-heading">Calendar</h2>
+                <h2 className="category-heading">Calendar</h2>
                 <Calendar/>
             </div>
 
             <div id="character">
-              <div class = "exp bar">
+              <div className = "exp bar">
                 <header>Your EXP</header>
-                <section class="progress">
+                <section className="progress">
                   <h2>Level <span level ></span> {level} </h2>
                     {/* <input type={input} /> */}
-                    <div class="exp-bar">
+                    <div className="exp-bar">
                       <span><span></span></span>
                     </div>
                 </section>
