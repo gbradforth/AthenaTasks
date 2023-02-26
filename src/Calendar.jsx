@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import config from './config.json';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
 function Calendar() {
@@ -10,7 +9,6 @@ function Calendar() {
     const MY_CLIENT_ID = "438644935030-35rucc42om7je7h09lve4g2gaf798e44.apps.googleusercontent.com";
     const [uid, setUid] = useState("");
     const [userName, setUserName] = useState("");
-    const MY_API_KEY = config.API_KEY;
 
     useEffect(() => {
         const script = document.createElement("script");
