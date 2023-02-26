@@ -40,6 +40,10 @@ section {
   background-repeat: repeat-x;
 }
 
+.fc-icon{
+  background-color: #1E2B37;
+}
+
 /**************************/
 
 div.help-desk {
@@ -60,7 +64,7 @@ header {
   box-sizing: border-box;
   width: 100%;
   
-  font-size: 10px;
+  font-size: 20px;
   line-height: 50px;
   text-align: center;
   color: rgb(115,120,190);
@@ -341,6 +345,7 @@ h2 {
   background-color: #bcbee1;
   color: #854c70;
   padding: 5px;
+  height:35px;
   width: 100%;
 }
 
