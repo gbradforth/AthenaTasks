@@ -7,7 +7,9 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 function Calendar() {
     const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
     const [events, setEvents] = useState(null);
-    const MY_CLIENT_ID = config.CLIENT_ID;
+    const MY_CLIENT_ID = "438644935030-35rucc42om7je7h09lve4g2gaf798e44.apps.googleusercontent.com";
+    const [uid, setUid] = useState("");
+    const [userName, setUserName] = useState("");
     const MY_API_KEY = config.API_KEY;
 
     useEffect(() => {
@@ -17,7 +19,7 @@ function Calendar() {
         script.src = "https://apis.google.com/js/api.js";
         document.body.appendChild(script);
         script.addEventListener("load", () => {
-            if (window.gapi) handleClientLoad();
+            if (window.gapi) window.gapi.load("client:auth2", initClient);
         });
     }, []);
     const openSignInPopup = () => {
@@ -33,9 +35,6 @@ function Calendar() {
             }
         );
     }
-    const handleClientLoad = () => {
-        window.gapi.load("auth2", initClient);
-    };
     const initClient = () => {
         if(!localStorage.getItem("access_token")) {
             openSignInPopup();
@@ -52,8 +51,8 @@ function Calendar() {
                 if (res.status !== 401) {
                     return res.json();
                 } else{
-                    localStorage.removeItem("access_token");
-                    openSignInPopup();
+                    //localStorage.removeItem("access_token");
+                    //openSignInPopup();
                 }
             })
             .then((data) => {
