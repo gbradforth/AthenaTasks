@@ -30,9 +30,10 @@
 h1 {
   margin-bottom: 15px;
   color: #854c70;
+  padding: 10px;
 }
 
-a:visited {
+a,a:visited {
   color: #854c70;
   text-decoration: none;
 }
@@ -40,30 +41,27 @@ a:visited {
 h2 {
   position: relative;
   top: -25px;
-  right: -5px;
   background-color: #bcbee1;
-  border: 1px solid bcbee1;
   color: #854c70;
   padding: 5px;
-  float: right;
+  width: 100%;
 }
 
 p,input,label {
-  font-family: Helvetica;
-  color: white;
-  background-color: #947eb0;
+  color: #854c70;
+  background-color: #e6e6fa;
 }
 
 #tasks,#calendar,#character {
   position: relative;
-  border: 1px solid #bcbee1;
+  border: 5px solid #bcbee1;
   margin-bottom: 15px;
-  background-color: #947eb0;
+  background-color: #e6e6fa;
   width: 90%;
-  height: 100px;
+  height: 200px;
   margin-right: auto;
-  margin-left: auto;
-  padding: 5px;
+  margin-left: auto; 
+  /* padding: 5px; */
 }
 
 .row {

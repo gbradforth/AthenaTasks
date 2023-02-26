@@ -9,7 +9,9 @@ function App() {
             <div id = "tasks">
                 <h2>Task List</h2> 
                 <input type="checkbox"/>
-                <label for="vehicle1"> Clean room</label>
+                <label> Clean room</label> <br/>
+                <input type="checkbox"/>
+                <label> Kill man</label> <br/>
             </div>
 
             <div id = "calendar">
@@ -17,7 +19,7 @@ function App() {
             </div>
 
             <div id="character">
-                <h2>Character</h2>
+                
             </div>
         </div>
       </body>     
