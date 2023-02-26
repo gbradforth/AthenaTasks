@@ -58,14 +58,10 @@ p,input,label {
   margin-bottom: 15px;
   background-color: #e6e6fa;
   width: 90%;
-  height: 200px;
+  height: 360px;
   margin-right: auto;
   margin-left: auto; 
   /* padding: 5px; */
-}
-
-.checkbox{
-  background-color: #ppp;
 }
 
 .row {

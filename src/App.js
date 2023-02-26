@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
       <body>
-        <h1><a href='index.html'>AthenaTasks</a></h1>
+        <h1>AthenaTasks</h1>
         <div class="row">
             <div id = "tasks">
                 <h2>Task List</h2> 
@@ -19,7 +19,7 @@ function App() {
             </div>
 
             <div id="character">
-              
+            <img src={require('./character.jpg')} width="350" height="350"/>
             </div>
         </div>
       </body>     
