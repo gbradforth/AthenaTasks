@@ -129,6 +129,7 @@ function App() {
             </div>
 
             <div id="character">
+              <h2 class="category-heading">Character</h2>
               <div class = "exp bar">
                 <header>Your EXP</header>
                 <section class="progress">
@@ -139,6 +140,7 @@ function App() {
                     </div>
                 </section>
               </div>
+              <img id="chr_photo" src={require('./character.png')} width={257} height={367}/>
             </div>
         </div>
       </body>     
